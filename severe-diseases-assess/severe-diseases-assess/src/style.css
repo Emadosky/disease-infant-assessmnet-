@@ -1,0 +1,167 @@
+@keyframes rainbow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff; /* Very light white background for the body */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.widget {
+  background-image: url('https://i.postimg.cc/SNkk0jXm/background-image.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+.text-box {
+  background-color: rgba(255, 255, 255, 0.8); /* Light white transparent background */
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 24px;
+  background: linear-gradient(270deg, #ff0000, #ff9900, #ffff00, #00ff00, #00ffff, #0000ff, #9900ff);
+  background-size: 1400% 1400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 5s ease infinite;
+  cursor: pointer;
+}
+
+.header-animated {
+  animation: rainbow 5s ease infinite;
+}
+
+#status-container, #interaction-container {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  transition: background-color 0.5s ease;
+}
+
+.status p, .interaction p {
+  margin: 0;
+  font-size: 16px;
+  color: white;
+}
+
+.status.normal {
+  background-color: rgba(128, 128, 128, 0.7); /* Semi-transparent gray */
+}
+
+.status.severe {
+  background-color: rgba(255, 0, 0, 0.7); /* Semi-transparent red */
+}
+
+.status.infection {
+  background-color: rgba(184, 134, 11, 0.7); /* Darker yellow with transparency */
+  color: white;
+}
+
+.status.unlikely {
+  background-color: rgba(0, 0, 255, 0.7); /* Semi-transparent blue */
+}
+
+.interaction.normal {
+  background-color: rgba(128, 128, 128, 0.7); /* Semi-transparent gray */
+}
+
+.interaction.severe, .interaction.infection {
+  background-color: rgba(0, 128, 0, 0.7); /* Semi-transparent green */
+}
+
+.interaction.unlikely {
+  background-color: rgba(0, 0, 139, 0.7); /* Darker semi-transparent blue */
+}
+
+.buttons-container {
+  margin-top: 20px;
+}
+
+.buttons-container button {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+  animation: fadeIn 1s ease-out; /* Apply fade-in animation */
+}
+
+.buttons-container button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+  animation: wave 5s infinite; /* Slower wave animation */
+}
+
+.buttons-container button.active {
+  background-color: gray; /* Change to gray when active */
+  color: white;
+}
+
+.buttons-container button:hover {
+  background-color: #0056b3;
+}
+
+.buttons-container button:focus {
+  outline: none;
+}
